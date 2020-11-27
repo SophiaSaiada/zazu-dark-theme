@@ -1,11 +1,17 @@
-@primary: #232323;
-@textColor: rgba(255, 255, 255, 0.7);
-@transparency: 90%;
+@primary: #000;
+@textColor: rgba(255, 255, 255, 0.9);
+@transparency: 60%;
+@fontFamily: "JetBrains Mono";
 
 html, body {
   margin: 0;
   padding: 0;
   font-size: 20px;
+}
+
+body {
+  height: 100vh;
+  background-color: fade(darken(@primary, 5%), @transparency);
 }
 
 body.playbook {
@@ -22,8 +28,7 @@ body.playbook {
 }
 
 section#zazu {
-  background-color: fade(darken(@primary, 5%), @transparency);
-  background-image: data-uri('../images/feather.png');
+  // background-image: data-uri('../images/feather.png');
   background-position: 530px 5px;
   background-repeat: no-repeat;
   background-size: 60px;
@@ -32,14 +37,18 @@ section#zazu {
 
   input {
     outline: none;
-    font-size: 40px;
     width: 500px;
-    padding: 10px;
+    padding: 16px 20px;
     border: 0;
     background-color: transparent;
     -webkit-app-region: no-drag;
     cursor: auto;
     color: @textColor;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    width: 500px;
+    font-family: @fontFamily;
   }
 
   iframe#preview {
@@ -55,7 +64,8 @@ section#zazu {
       margin: 0;
       border-top: 1px solid fade(darken(@primary, 10%), @transparency);
       max-height: 333px;
-      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
       width: 50%;
 
       &:last-child {
@@ -67,13 +77,20 @@ section#zazu {
       }
 
       li {
-        display: block;
+        display: flex;
         height: 45px;
+        padding: 5px 0;
         line-height: 45px;
         border-bottom: 1px solid fade(darken(@primary, 10%), @transparency);
         -webkit-app-region: no-drag;
         cursor: pointer;
         width: 100%;
+
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+        align-content: flex-start;
 
         .icon {
           color: @textColor;
@@ -84,6 +101,7 @@ section#zazu {
           margin: 7.5px;
           float: left;
           opacity: 0.75;
+          margin-right: 0px;
         }
 
         h2, h3 {
@@ -93,22 +111,20 @@ section#zazu {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          font-family: "Sans Unicode", "Lucida Grande", sans-serif;
-          font-weight: 400;
+          font-family: @fontFamily;
+          font-weight: 300;
+          letter-spacing: -0.025em;
         }
 
         h2 {
-          font-size: 20px;
-          line-height: 25px;
-          &:last-child {
-            font-size: 20px;
-            line-height: 45px;
-          }
+          font-size: 14px;
+          line-height: 16px;
+          font-weight: 400;
         }
 
         h3 {
-          font-size: 15px;
-          line-height: 15px;
+          font-size: 12.4px;
+          line-height: 13px;
         }
 
         &.active, &:hover {
@@ -117,4 +133,26 @@ section#zazu {
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: none;
+  -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: none;
+}
+
+pre.text {
+  font-size: 16px;
+  color: @textColor;
 }
