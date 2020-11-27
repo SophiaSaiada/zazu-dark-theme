@@ -1,6 +1,7 @@
-@primary: #232323;
+@primary: #000;
 @textColor: rgba(255, 255, 255, 0.7);
-@transparency: 90%;
+@transparency: 60%;
+@fontFamily: "JetBrains Mono";
 
 html, body {
   margin: 0;
@@ -23,7 +24,7 @@ body.playbook {
 
 section#zazu {
   background-color: fade(darken(@primary, 5%), @transparency);
-  background-image: data-uri('../images/feather.png');
+  // background-image: data-uri('../images/feather.png');
   background-position: 530px 5px;
   background-repeat: no-repeat;
   background-size: 60px;
@@ -93,7 +94,7 @@ section#zazu {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          font-family: "Sans Unicode", "Lucida Grande", sans-serif;
+          font-family: @fontFamily;
           font-weight: 400;
         }
 
